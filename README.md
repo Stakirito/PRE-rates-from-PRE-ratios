@@ -9,5 +9,5 @@ q558c_hydrogen_width_simple.txt contains information about hydrogen widths, valu
 
 This is a script, which allows to calculate PRE ratios from PRE rates, which were measured as an intensity ratio of paramagnetic to diamagnetic sample.
 PRE ratios are related to PRE rates:
-r = r2*np.exp(-10.6/1000*rp)/(r2+rp), where r is ratio, r2 is hydrogen width in Hz, rp is the PRE rate.
+r = r2*exp(-10.6/1000*rp)/(r2+rp), where r is ratio, r2 is hydrogen width in Hz, rp is the PRE rate.
 Script takes each value of r and r2 from the files and calculates rp.
