@@ -23,13 +23,13 @@ datafile2=open(datafilename2,'r')
 top_line1=datafile1.readline()
 top_line2=datafile2.readline()
 
-shiftlists1=datafile1.readlines()
-shiftlists2=datafile2.readlines()
+r_list=datafile1.readlines()
+r2_list=datafile2.readlines()
 
-l1=len(shiftlists1)
-l2=len(shiftlists2)
+l1=len(r_list)
+l2=len(r2_list)
 
-height={}
+rate={}
 
 if l1 != l2:
   print ("error -> different number of residues")
@@ -39,12 +39,12 @@ i=0
 r2=0
 w=0
 rp_values=[]
-for peak in shiftlists1:
+for peak in r_list:
   peak1=peak.split()
-  peak2=shiftlists2[i].split()
+  peak2=r2_list[i].split()
   
   npts=len(peak1)
-  height[i]=[]
+  rate[i]=[]
   for j in range(npts):
    try:
      r=float(peak1[j])
@@ -55,12 +55,13 @@ for peak in shiftlists1:
      rp_initial_guess=40
      rp_solution=fsolve(func, rp_initial_guess)
      print (float(rp_solution), end=" ")
-     height[i].append(float(rp_solution))
+     rate[i].append(float(rp_solution))
   
    except: print ("0.0", end=' ')
-     # height[i].append(0.)
- # print (height[i][j], end=' ')
+
   i=i+1
   print("")
+
+  
 
   
